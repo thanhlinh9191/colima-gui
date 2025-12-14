@@ -41,7 +41,7 @@ async fn list_colima(window: Window, debug: bool) -> Result<(), String> {
 
 #[command]
 async fn prune_colima(window: Window, debug: bool) -> Result<(), String> {
-    stream_command_output(window, "colima prune", debug).await
+    stream_command_output(window, "colima prune -f", debug).await
 }
 
 #[command]

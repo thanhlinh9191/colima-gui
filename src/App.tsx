@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import { invoke } from '@tauri-apps/api/tauri';
 import { listen } from '@tauri-apps/api/event';
-import { getCurrent } from '@tauri-apps/api/window';
 import { Button, Checkbox, FormControlLabel, Typography, Container, Box, Paper } from '@mui/material';
 
 function App() {
@@ -30,8 +29,7 @@ function App() {
   const handleClick = async (command: string, label?: string) => {
     try {
       setOutput((prevOutput) => [...prevOutput, `$ ${label || command}`]); // Add command to output
-      const currentWindow = await getCurrent();
-      await invoke(command, { window: currentWindow, debug });
+      await invoke(command, { debug });
     } catch (error) {
       alert('Error: ' + error);
     }
