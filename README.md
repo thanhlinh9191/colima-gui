@@ -1,5 +1,7 @@
 # Colima GUI
 
+> **Note:** This is a fork of [kyletaylored/colima-gui](https://github.com/kyletaylored/colima-gui) with updates for compatibility with Colima v0.9.1 and modern dependencies.
+
 Colima GUI is a desktop application for managing Colima, a tool that provides container runtimes on macOS with minimal setup. This application offers a graphical user interface for starting, stopping, restarting, and managing Colima instances.
 
 ## Features
@@ -49,6 +51,21 @@ Colima GUI is a desktop application for managing Colima, a tool that provides co
 ## Usage
 
 Once the application is running, you can use the provided buttons to manage your Colima instances. The terminal output will display the results of the commands executed.
+
+## What's New in This Fork
+
+This fork includes the following improvements:
+
+- ✅ Updated to work with Colima v0.9.1
+- ✅ Upgraded React from v17 to v18 with new `createRoot` API
+- ✅ Fixed Tauri IPC configuration issues
+- ✅ Added `-f` flag to prune command for non-interactive execution
+- ✅ Removed incompatible dependencies
+- ✅ Fixed window parameter handling in frontend
+
+## Credits
+
+This project is a fork of the original [Colima GUI](https://github.com/kyletaylored/colima-gui) created by [Kyle Taylor](https://github.com/kyletaylored). Thanks to Kyle for creating the initial version of this application.
 
 ## License
 
