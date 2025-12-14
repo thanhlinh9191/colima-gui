@@ -69,9 +69,14 @@ fn open_config() -> Result<String, String> {
 async fn stream_command_output(window: Window, command: &str, debug: bool) -> Result<(), String> {
     println!("Running command: {} with debug: {}", command, debug);
 
+    // Set PATH to include common Homebrew locations for GUI apps
+    let path_env = std::env::var("PATH").unwrap_or_default();
+    let new_path = format!("/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:{}", path_env);
+
     let mut cmd = Command::new("sh")
         .arg("-c")
         .arg(command)
+        .env("PATH", new_path)
         .stdout(Stdio::piped())
         .stderr(Stdio::piped())
         .spawn()
